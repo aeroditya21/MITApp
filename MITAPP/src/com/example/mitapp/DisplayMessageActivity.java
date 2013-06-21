@@ -1,9 +1,11 @@
 package com.example.mitapp;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 import android.annotation.SuppressLint;
@@ -16,20 +18,18 @@ public class DisplayMessageActivity extends Activity {
 	@SuppressLint("NewApi")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Set the text view as the activity layout
+			setContentView(R.layout.activity_display_message);
 		// Show the Up button in the action bar.
-				 setupActionBar();
+			 setupActionBar();
 
 		Intent intent = getIntent();
 		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
 		// Create the text view
-		TextView textView = new TextView(this);
-		textView.setTextSize(40);
+		TextView textView = (TextView) findViewById(R.id.display_message);
 		textView.setText(message);
-
-		// Set the text view as the activity layout
-		setContentView(textView);
-
 		
 	}
 
@@ -43,6 +43,11 @@ public class DisplayMessageActivity extends Activity {
 		}
 	}
 
+	public void backtoMain(View view){
+		Intent intent2 = new Intent(this, MainActivity.class);
+	    startActivity(intent2);
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
