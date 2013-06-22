@@ -44,7 +44,7 @@ public class DisplayMessageActivity extends Activity {
 	}
 
 	public void backtoMain(View view){
-		Intent intent2 = new Intent(this, MainActivity.class);
+		Intent intent2 = new Intent(this, FragmentBasics.class);
 	    startActivity(intent2);
 	}
 	
